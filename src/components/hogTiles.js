@@ -5,13 +5,13 @@ console.log(hogs)
 
 class HogTiles extends React.Component{
 // state determines whether we show details of the hog or not
-  constructor(){
-    super()
-    this.state = {
-      click: false
-    }
-
+constructor(){
+  super()
+  this.state = {
+    click: false
   }
+
+}
 
 //determine what happens when we click on hog
   handleHogClick = () => {
@@ -22,17 +22,51 @@ class HogTiles extends React.Component{
     }
   }
 
-  render(){
-    // need conditional rendering depending on if state is clicked
-    if this.state.click === false {
-      <div onClick={ this.handleHogClick }>
-        <h1>Name:{ this.props.name }</h1>
-        <p></p>
+  hogTileUnclicked = (props) => {
+    return (
+      <div>
+        {hogs.map(hog => {
+          return (
+          <div>
+            hog.name
+          </div>
+          )
+        })}
       </div>
+    )
+  }
+
+  hogTileClicked = (props) => {
+    return (
+      <div>
+        {hogs.map(hog => {
+          return (
+          <div>
+            <p>hog.name</p>
+            <p>hog.greased</p>
+            <p>hog.specialty</p>
+            <p>hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']</p>
+            <p>hog['highest medal achieved']</p>
+          </div>
+          )
+        })
+      }
+      </div>
+    )
+  }
+
+
+  render(){
+    return(
+    // need conditional rendering depending on if state is clicked
+    if (this.state.click === false) {
+      {hogTileUnclicked(props)}
       //need on click method for tile for handleHogClick method made before
     }else {
       // need on click method for tile for handleHogClick method
+      {hogTileClicked(props)}
     }
+  )
   }
 
 

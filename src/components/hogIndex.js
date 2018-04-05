@@ -4,7 +4,38 @@ import hogs from '../porkers_data';
 
 class HogIndex extends React.Component {
 
+  constructor(){
+    super()
+    this.state = {
+      hogsArr: []
 
+
+    }
+  }
+
+  hogArray(){
+    hogs.forEach(hog =>  {
+    let newHog = Object.assign({click: false}, hog)
+    this.state.hogsArr.push(newHog)
+    console.log(this.state.hogsArr)
+    })
+  }
+
+
+
+  // hogRenderer = (e) => {
+  //   if e.target.
+  // }
+
+  handleHogClick = (e) => {
+    console.log(e.target)
+    this.hogArray()
+    if (this.state.click === false){
+      this.setState({click: true})
+    } else {
+      this.setState({click:false})
+    }
+  }
 
   generateHog = () => {
     return hogs.map((hog) => {
@@ -25,20 +56,18 @@ class HogIndex extends React.Component {
     })
   }
 
+//only render the hogs details that are clicked
   render(){
     const hogListDetails = this.generateHogInfo()
     const hogList = this.generateHog()
     return (
-        <div>
-          { (this.state.click) ? hogListDetails : hogList }
-        </div>
+    <div>
+      {hogList}
+    </div>
 
     )
 
-
-
   }
-
 
 }
 

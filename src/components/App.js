@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import Nav from './Nav'
 import HogIndex from './hogIndex'
+// import HogTiles from './hogTiles'
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
           <Nav />
           <HogIndex />
+
       </div>
     )
   }
